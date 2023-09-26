@@ -1,3 +1,3 @@
-idk just some text
+blah blah blah not java
 
-"this isnt really java"
+"just random stuff for testing" 
