@@ -1,4 +1,4 @@
-# ENMU_proj1
+# CodeInspector
 
 
 Build a new docker image from this Dockerfile and assign the image a meaningful name, e.g. "myjenkins-blueocean:2.414.2-1":
