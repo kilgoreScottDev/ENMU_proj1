@@ -1,7 +1,7 @@
 public class TestErrors {
 
     public static void main(String[] args) {
-        int num1 = 5
+        int num1 = 5;
         int num2 = "10";
         
         System.out.println("Sum is: " + add(num1, num2));

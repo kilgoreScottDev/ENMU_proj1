@@ -81,8 +81,6 @@
                     <includes>
                         <include>Upload_here/**/*.java</include>
                     </includes>
-                    <failOnError>false</failOnError>
-                    <sourceDirectory>${project.basedir}/Upload_here</sourceDirectory>
                 </configuration>
                 <executions>
                     <execution>
