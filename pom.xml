@@ -21,10 +21,11 @@
     <dependencies>
         <!-- Add Java libraries here -->
         <dependency>
-            <groupId>com.google.code.findbugs</groupId>
+            <groupId>edu.umd.cs</groupId>
             <artifactId>findbugs</artifactId>
-            <version>3.0.2</version> <!-- Adjust version if necessary -->
+            <version>3.0.1</version> <!-- This is the correct version available -->
         </dependency>
+
 
     </dependencies>
 
