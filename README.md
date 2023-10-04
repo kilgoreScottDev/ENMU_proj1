@@ -23,3 +23,4 @@ Proceed to the Setup wizard.
 
 `docker exec jenkins-blueocean cat /var/jenkins_home/secrets/initialAdminPassword`
 
+test push
