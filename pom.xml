@@ -37,11 +37,16 @@
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>3.1.2</version>
                 <configuration>
-                    <checkstyleVersion>8.30</checkstyleVersion> <!-- This is the Checkstyle tool version -->
                     <failOnViolation>false</failOnViolation>
                     <sourceDirectories>${project.basedir}/Upload_here</sourceDirectories>
                 </configuration>
-                
+                <dependencies>
+                    <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                        <artifactId>checkstyle</artifactId>
+                        <version>8.30</version>
+                    </dependency>
+                </dependencies>
             </plugin>
 
             <!-- PMD Plugin -->
@@ -51,7 +56,10 @@
                 <version>3.14.0</version>
                 <configuration>
                     <failOnViolation>false</failOnViolation>
-                    <sourceDirectory>${project.basedir}/Upload_here</sourceDirectory>
+                    <includeTests>false</includeTests>
+                    <includes>
+                        <include>Upload_here/**/*.java</include>
+                    </includes>
                 </configuration>
                 <executions>
                     <execution>
@@ -68,6 +76,11 @@
                 <artifactId>findbugs-maven-plugin</artifactId>
                 <version>3.0.5</version>
                 <configuration>
+                    <failOnError>false</failOnError>
+                    <includeTests>false</includeTests>
+                    <includes>
+                        <include>Upload_here/**/*.java</include>
+                    </includes>
                     <failOnError>false</failOnError>
                     <sourceDirectory>${project.basedir}/Upload_here</sourceDirectory>
                 </configuration>
