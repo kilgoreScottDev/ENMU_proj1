@@ -31,12 +31,6 @@
 
     <dependencies>
         <!-- Add Java libraries here -->
-        <dependency>
-            <groupId>com.github.spotbugs</groupId>
-            <artifactId>spotbugs</artifactId>
-            <version>4.5.2</version> <!-- Match the version with the plugin. Check Maven Central for updates. -->
-            <scope>provided</scope>
-        </dependency>
 
 
 
@@ -126,21 +120,16 @@
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>4.5.2</version> <!-- Latest version as of my last update. Check Maven Central for updates. -->
-                <configuration>
-                    <xmlOutput>true</xmlOutput>
-                    <failOnError>false</failOnError>
-                    <xmlOutputDirectory>${project.build.directory}</xmlOutputDirectory>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+                <version>4.7.2.1</version>
+                <dependencies>
+                    <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
+                    <dependency>
+                    <groupId>com.github.spotbugs</groupId>
+                    <artifactId>spotbugs</artifactId>
+                    <version>4.7.3</version>
+                    </dependency>
+                </dependencies>
+                </plugin>
 
 
         </plugins>
