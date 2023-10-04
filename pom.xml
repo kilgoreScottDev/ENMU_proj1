@@ -28,7 +28,7 @@
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>3.1.2</version>
                 <configuration>
-                    <sourceDirectory>${project.basedir}/Upload_here</sourceDirectory>
+                    <sourceDirectories>${project.basedir}/Upload_here</sourceDirectories>
                 </configuration>
             </plugin>
 
