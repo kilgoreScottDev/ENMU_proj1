@@ -11,6 +11,10 @@ public class CombinedErrors {
         return name.length();  // FindBugs: Potential null dereference.
     }
 
+    public String[] getArray() {
+    return new String[] {};
+    }
+
     public static void main(String[] args){
         System.out.println("Hello, World!"); // Checkstyle: Missing space after 'args'.
 
