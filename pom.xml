@@ -20,6 +20,12 @@
 
     <dependencies>
         <!-- Add Java libraries here -->
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>findbugs</artifactId>
+            <version>3.0.2</version> <!-- Adjust version if necessary -->
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -55,6 +61,12 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>3.14.0</version>
                 <configuration>
+                    <rulesets>
+                        <ruleset>category/java/bestpractices.xml</ruleset>
+                        <ruleset>category/java/codestyle.xml</ruleset>
+                        <ruleset>category/java/errorprone.xml</ruleset>
+                        <ruleset>category/java/performance.xml</ruleset>
+                    </rulesets>
                     <failOnViolation>false</failOnViolation>
                     <includeTests>false</includeTests>
                     <includes>
@@ -79,9 +91,15 @@
                     <xmlOutput>true</xmlOutput>
                     <xmlOutputDirectory>${project.build.directory}</xmlOutputDirectory>
                     <failOnError>false</failOnError>
+                    <outputFile>${project.build.directory}/findbugsXml.xml</outputFile>
+                    <effort>Max</effort>
+                    <threshold>Low</threshold>
+                    
                 </configuration>
                 <executions>
                     <execution>
+                        <phase>verify</phase>
+
                         <goals>
                             <goal>check</goal>
                         </goals>
