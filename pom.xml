@@ -79,10 +79,6 @@
                     <xmlOutput>true</xmlOutput>
                     <xmlOutputDirectory>${project.build.directory}</xmlOutputDirectory>
                     <failOnError>false</failOnError>
-                    <includeTests>false</includeTests>
-                    <includes>
-                        <include>Upload_here/**/*.java</include>
-                    </includes>
                 </configuration>
                 <executions>
                     <execution>
