@@ -21,5 +21,16 @@ public class CombinedErrors {
         CombinedErrors errors = new CombinedErrors();
         System.out.println(errors.getNameLength());
     }
+
+    public void potentialNullDereference(String input) {
+        String local = null;
+        if (input.isEmpty()) {
+            local = "Test";
+        }
+        System.out.println(local.length()); // potential null dereference here
+    }
+    System.out.println()
+        
+
 }
 
