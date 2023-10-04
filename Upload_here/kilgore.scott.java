@@ -29,8 +29,7 @@ public class CombinedErrors {
         }
         System.out.println(local.length()); // potential null dereference here
     }
-    System.out.println()
-        
+  
 
 }
 
