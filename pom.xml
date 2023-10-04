@@ -67,6 +67,8 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>3.14.0</version>
                 <configuration>
+                    <effort>Max</effort>
+                    <threshold>Low</threshold>
                     <rulesets>
                         <ruleset>category/java/bestpractices.xml</ruleset>
                         <ruleset>category/java/codestyle.xml</ruleset>
@@ -120,6 +122,22 @@
                 <artifactId>spotbugs-maven-plugin</artifactId>
                 <version>4.7.2.1</version>
                 <configuration>
+                    <effort>Max</effort>
+                    <threshold>Low</threshold>
+                    <spotbugsXmlOutput>true</spotbugsXmlOutput>
+                    <spotbugsXmlOutputDirectory>target/site</spotbugsXmlOutputDirectory>
+                    <skipEmptyReport>false</skipEmptyReport>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <includeTests>true</includeTests>
+                    <classFilesDirectory>${project.build.outputDirectory}</classFilesDirectory>
+                    <spotbugs.xmlOutput>true</spotbugs.xmlOutput>
+                    <plugins>
+                        <plugin>
+                            <groupId>jp.skypencil.findbugs.slf4j</groupId>
+                            <artifactId>bug-pattern</artifactId>
+                            <version>1.4.0</version>
+                        </plugin>
+                    </plugins>
                     <outputFile>${project.build.directory}/spotbugsXml.xml</outputFile>
                     <xmlOutput>true</xmlOutput>
                     <xmlOutputDirectory>${project.build.directory}</xmlOutputDirectory>
@@ -132,6 +150,13 @@
                     <version>4.7.3</version>
                     </dependency>
                 </dependencies>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>spotbugs</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
                 </plugin>
 
 
