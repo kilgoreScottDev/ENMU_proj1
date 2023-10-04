@@ -150,13 +150,6 @@
                     <version>4.7.3</version>
                     </dependency>
                 </dependencies>
-                <reportSets>
-                    <reportSet>
-                        <reports>
-                            <report>spotbugs</report>
-                        </reports>
-                    </reportSet>
-                </reportSets>
                 </plugin>
 
 
