@@ -35,8 +35,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>8.30</version>
+                <version>3.1.2</version>
                 <configuration>
+                    <checkstyleVersion>8.30</checkstyleVersion> <!-- This is the Checkstyle tool version -->
                     <failOnViolation>false</failOnViolation>
                     <sourceDirectories>${project.basedir}/Upload_here</sourceDirectories>
                 </configuration>
