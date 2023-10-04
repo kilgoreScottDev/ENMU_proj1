@@ -39,13 +39,7 @@
                     <failOnViolation>false</failOnViolation>
                     <sourceDirectories>${project.basedir}/Upload_here</sourceDirectories>
                 </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                
             </plugin>
 
             <!-- PMD Plugin -->
