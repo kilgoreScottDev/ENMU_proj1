@@ -87,7 +87,7 @@
 
             <!-- Findbugs Plugin -->
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
                 <version>3.0.5</version>
                 <configuration>
@@ -113,7 +113,7 @@
 
             <!-- Spotbugs Plugin -->
             <plugin>
-                <groupId>com.github.spotbugs</groupId>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
                 <version>4.5.2</version> <!-- Latest version as of my last update. Check Maven Central for updates. -->
                 <configuration>
@@ -123,6 +123,7 @@
                 </configuration>
                 <executions>
                     <execution>
+                        <phase>verify</phase>
                         <goals>
                             <goal>check</goal>
                         </goals>
