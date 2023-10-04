@@ -35,6 +35,15 @@
     </dependencies>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>4.7.3.7-SNAPSHOT</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <!-- Maven Compiler Plugin -->
             <plugin>
@@ -120,7 +129,6 @@
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>4.7.2.1</version>
                 <configuration>
                     <effort>Max</effort>
                     <threshold>Low</threshold>
@@ -155,4 +163,13 @@
 
         </plugins>
     </build>
+    <reporting>
+        <plugins>
+        <plugin>
+            <groupId>com.github.spotbugs</groupId>
+            <artifactId>spotbugs-maven-plugin</artifactId>
+            <version>4.7.3.7-SNAPSHOT</version>
+        </plugin>
+        </plugins>
+    </reporting>
 </project>
