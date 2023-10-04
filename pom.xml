@@ -76,6 +76,8 @@
                 <artifactId>findbugs-maven-plugin</artifactId>
                 <version>3.0.5</version>
                 <configuration>
+                    <xmlOutput>true</xmlOutput>
+                    <xmlOutputDirectory>${project.build.directory}</xmlOutputDirectory>
                     <failOnError>false</failOnError>
                     <includeTests>false</includeTests>
                     <includes>
