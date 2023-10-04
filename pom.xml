@@ -21,10 +21,12 @@
     <dependencies>
         <!-- Add Java libraries here -->
         <dependency>
-            <groupId>edu.umd.cs</groupId>
-            <artifactId>findbugs</artifactId>
-            <version>3.0.1</version> <!-- This is the correct version available -->
+            <groupId>com.github.spotbugs</groupId>
+            <artifactId>spotbugs</artifactId>
+            <version>4.5.2</version> <!-- Match the version with the plugin. Check Maven Central for updates. -->
+            <scope>provided</scope>
         </dependency>
+
 
 
     </dependencies>
@@ -107,6 +109,28 @@
                     </execution>
                 </executions>
             </plugin>
+
+
+            <!-- Spotbugs Plugin -->
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>4.5.2</version> <!-- Latest version as of my last update. Check Maven Central for updates. -->
+                <configuration>
+                    <xmlOutput>true</xmlOutput>
+                    <failOnError>false</failOnError>
+                    <xmlOutputDirectory>${project.build.directory}</xmlOutputDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+
         </plugins>
     </build>
 </project>
