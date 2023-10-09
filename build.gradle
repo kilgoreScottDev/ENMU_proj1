@@ -7,7 +7,12 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
+    id 'java'
+    id 'pmd'
+    id 'checkstyle'
+    id 'com.github.spotbugs' version '4.7.0' // Note the version number may change
 }
+
 
 repositories {
     mavenLocal()
@@ -35,4 +40,16 @@ tasks.withType(JavaCompile) {
 
 tasks.withType(Javadoc) {
     options.encoding = 'UTF-8'
+}
+
+
+pmd {
+  ruleSetFiles = files("config/pmd/ruleset.xml")
+}
+
+apply plugin: 'com.github.spotbugs'
+
+spotbugs {
+  toolVersion = '4.2.3'
+  ignoreFailures = true
 }
