@@ -1,4 +1,6 @@
 plugins {
+    id 'java-library'
+    id 'maven-publish'
     id 'java'
     id 'pmd'
     id 'checkstyle'
