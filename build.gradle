@@ -62,7 +62,6 @@ pmd {
     }
 }
 
-import com.github.spotbugs.SpotBugsTask
 
 task spotbugsMain(type: SpotBugsTask) {
     classes = fileTree('build/classes/main') // Define the class files you want to check
