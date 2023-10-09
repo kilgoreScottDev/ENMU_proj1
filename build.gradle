@@ -42,16 +42,33 @@ tasks.withType(Javadoc) {
     options.encoding = 'UTF-8'
 }
 
+pmdMain {
+    reports {
+        xml.enabled = true
+        xml.destination = file("$buildDir/reports/pmd/main.xml")
+    }
+}
 
 // PMD configuration
 pmd {
     toolVersion = '6.38.0'  // You can specify the version of PMD you want to use
-    ruleSets = ["category/java/bestpractices.xml", "category/java/codestyle.xml"]
+    ruleSets = ["category/java/bestpractices.xml", "category/java/codestyle.xml", "java-basic", "java-design"]
     ignoreFailures = true
+    sourceSets = [sourceSets.main]  // This will apply PMD only to the main source set.
     reports {
+        xml.destination = file("build/reports/pmd/pmd.xml")
         xml.enabled = true  // Enables XML report (for CI tools like Jenkins)
         html.enabled = true // Enables HTML report
     }
+}
+
+import com.github.spotbugs.SpotBugsTask
+
+task spotbugsMain(type: SpotBugsTask) {
+    classes = fileTree('build/classes/main') // Define the class files you want to check
+    source = fileTree('src/main/java').include('**/*.java') // Define the source files you want to check
+    classpath = files() // Define the classpath
+    // ... other configurations
 }
 
 // SpotBugs configuration
@@ -67,10 +84,14 @@ spotbugs {
 }
 
 task customPmd(type: Pmd) {
-    source = 'src'
+    
+    source = fileTree('src/main/java').include('**/*.java')  // Define the Java files you want to check
     rulePriority = 5
     ruleSets = []
     ignoreFailures = true
+    doLast {
+        println "PMD has checked the following files: ${source.files}"
+    }
     reports {
         xml.enabled = false
         html.enabled = true
