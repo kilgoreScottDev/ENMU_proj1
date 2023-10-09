@@ -43,16 +43,40 @@ tasks.withType(Javadoc) {
 }
 
 
+// PMD configuration
 pmd {
-  ruleSetFiles = files("config/pmd/ruleset.xml")
+    toolVersion = '6.38.0'  // You can specify the version of PMD you want to use
+    ruleSets = ["category/java/bestpractices.xml", "category/java/codestyle.xml"]
+    ignoreFailures = true
+    reports {
+        xml.enabled = true  // Enables XML report (for CI tools like Jenkins)
+        html.enabled = true // Enables HTML report
+    }
 }
 
-apply plugin: 'com.github.spotbugs'
-
+// SpotBugs configuration
 spotbugs {
-  toolVersion = '4.2.3'
-  ignoreFailures = true
+    toolVersion = '4.2.3'  // You can specify the version of SpotBugs you want to use
+    effort = 'max'
+    reportLevel = 'low'
+    ignoreFailures = true
+    reports {
+        xml.enabled = true  // Enables XML report (for CI tools like Jenkins)
+        html.enabled = true // Enables HTML report
+    }
 }
 
+task customPmd(type: Pmd) {
+    source = 'src'
+    rulePriority = 5
+    ruleSets = []
+    ignoreFailures = true
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+
+check.dependsOn customPmd
 check.dependsOn spotbugsMain
 
