@@ -24,10 +24,24 @@ pmd {
 }
 
 spotbugs {
-    toolVersion = '4.2.3'
-    effort = 'max'
-    reportLevel = 'low'
-    ignoreFailures = true
+    ignoreFailures = false
+    showStackTraces = true
+    showProgress = true
+    effort = 'default'
+    reportLevel = 'default'
+    visitors = [ 'FindSqlInjection', 'SwitchFallthrough' ]
+    omitVisitors = [ 'FindNonShortCircuit' ]
+    reportsDir = file("$buildDir/spotbugs")
+    includeFilter = file("include.xml")
+    excludeFilter = file("exclude.xml")
+    baselineFile = file("baseline.xml")
+    onlyAnalyze = [ 'com.foobar.MyClass', 'com.foobar.mypkg.*' ]
+    maxHeapSize = '1g'
+    extraArgs = [ '-nested:false' ]
+    jvmArgs = [ '-Duser.language=ja' ]
+    dependencies {
+        spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.12.0'
+    }
 }
 
 tasks.withType(com.github.spotbugs.SpotBugsTask) {
