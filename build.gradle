@@ -44,16 +44,27 @@ spotbugs {
     }
 }
 
+// Example to configure HTML report
+spotbugsMain {
+    reports {
+        html {
+            required = true
+            outputLocation = file("$buildDir/reports/spotbugs/main/spotbugs.html")
+            stylesheet = 'fancy-hist.xsl'
+        }
+    }
+}
+
 tasks.withType(com.github.spotbugs.SpotBugsTask) {
     reports {
-        xml.enabled = false
+        xml.enabled = true
         html.enabled = true
     }
 }
 
 tasks.withType(Pmd) {
     reports {
-        xml.enabled = false
+        xml.enabled = true
         html.enabled = true
     }
 }
